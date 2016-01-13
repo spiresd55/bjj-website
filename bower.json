@@ -1,0 +1,9 @@
+{
+  "name": "daniel-duarte-bjj",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "~1.4.8",
+    "angular-route": "latest"
+  }
+}
