@@ -8,11 +8,24 @@ var imagemin = require('gulp-imagemin'),
     cache = require('gulp-cache');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
+var nodemon = require('gulp-nodemon');
+
+browserSync.create();
+
+///////////////
+// Variables
+//////////////
+
+var dirs = {
+    'server': {
+        'main' : 'app.js'
+    }
+}
 
 gulp.task('browser-sync', function() {
     browserSync({
         server: {
-            baseDir: "./"
+            baseDir: "./server/"
         }
     });
 });
@@ -53,6 +66,24 @@ gulp.task('scripts', function(){
         .pipe(uglify())
         .pipe(gulp.dest('client/dist/scripts/'))
         .pipe(browserSync.reload({stream:true}))
+});
+
+gulp.task('nodemon', function(cb) {
+    nodemon({
+        'script': dirs.server.main,
+        'watch': dirs.server.main
+    }).once('start', function() {
+        cb();
+    }).on('restart', function() {
+
+    });
+});
+
+//TODO: Replace with environment configuration
+gulp.task('browser-sync', ['nodemon'], function() {
+    browserSync.init({
+        proxy: "localhost:3000"
+    });
 });
 
 gulp.task('default', ['browser-sync'], function(){

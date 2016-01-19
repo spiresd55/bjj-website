@@ -2,10 +2,12 @@
   "name": "daniel-duarte-bjj",
   "main": "server.js",
   "dependencies": {
-    "body-parser": "~1.4.2",
-    "express": "^4.5.1",
+    "body-parser": "^1.4.3",
+    "express": "^4.13.3",
+    "gulp-nodemon": "^2.0.6",
     "method-override": "~2.0.2",
-    "mongoose": "~3.8.0"
+    "mongoose": "~3.8.0",
+    "nodemon": "^1.8.1"
   },
   "devDependencies": {
     "browser-sync": "^2.11.0",

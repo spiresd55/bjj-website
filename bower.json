@@ -4,6 +4,7 @@
   "dependencies": {
     "bootstrap": "latest",
     "angular": "~1.4.8",
-    "angular-route": "latest"
+    "angular-route": "latest",
+    "font-awesome": "~4.5.0"
   }
 }
